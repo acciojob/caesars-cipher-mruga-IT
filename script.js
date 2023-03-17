@@ -21,4 +21,19 @@ function rot13(encodedStr){
 
 // console.log(rot13("SERR YBIR? NPPVBWBO"));
 
-module.exports = rot13;
+// module.exports = rot13;
+function rot13(str) {
+  let decoded = "";
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str.charCodeAt(i);
+
+    if (char >= 65 && char <= 90) { // check if character is a letter
+      char = ((char - 65 + 13) % 26) + 65; // shift character by 13 places
+    }
+
+    decoded += String.fromCharCode(char);
+  }
+
+  return decoded;
+}
